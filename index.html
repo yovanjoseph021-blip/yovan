@@ -59,28 +59,97 @@ nav a:hover {
     font-weight: bold;
 }
 
-.hero {
-    min-height: 420px;
-    background:
-        linear-gradient(#0009, #0009),
-        url("chicken.webp") center/cover no-repeat;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 30px;
+/* IMAGE SLIDER */
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    overflow: hidden;
+    background: #222;
 }
 
-.hero h1 {
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide.active {
+    display: block;
+    animation: fade 0.8s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    width: 90%;
+    text-shadow: 2px 2px 5px black;
+}
+
+.slide-content h1 {
     font-size: 42px;
     margin-bottom: 15px;
 }
 
-.hero p {
+.slide-content p {
     font-size: 19px;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: #0009;
+    color: white;
+    font-size: 28px;
+    padding: 12px 17px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 5;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+.dots {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.dot {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin: 4px;
+    background: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #ffb52e;
 }
 
 .btn {
@@ -170,10 +239,6 @@ section {
     margin: 10px;
 }
 
-.product button {
-    margin-top: 8px;
-}
-
 .offer {
     background: #292929;
     color: white;
@@ -203,12 +268,13 @@ section {
 }
 
 .cart-item button {
-    padding: 6px 11px;
+    padding: 7px 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     background: #333;
     color: white;
+    margin: 3px;
 }
 
 .remove {
@@ -223,7 +289,7 @@ section {
     margin-top: 20px;
 }
 
-input, textarea, select {
+input, textarea {
     width: 100%;
     padding: 13px;
     margin: 8px 0 16px;
@@ -240,7 +306,7 @@ label {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 12px 0;
+    margin: 14px 0;
 }
 
 .payment-option input {
@@ -252,7 +318,7 @@ label {
     background: #fff4d8;
     padding: 14px;
     border-radius: 7px;
-    margin: 12px 0;
+    margin: 15px 0;
     font-size: 14px;
 }
 
@@ -261,10 +327,6 @@ footer {
     color: white;
     text-align: center;
     padding: 25px;
-}
-
-footer a {
-    color: #ffb52e;
 }
 
 @media(max-width:600px) {
@@ -278,8 +340,16 @@ footer a {
         margin: 6px;
     }
 
-    .hero h1 {
-        font-size: 30px;
+    .slider {
+        height: 350px;
+    }
+
+    .slide-content h1 {
+        font-size: 28px;
+    }
+
+    .slide-content p {
+        font-size: 15px;
     }
 
     .cart-item {
@@ -307,11 +377,57 @@ footer a {
     🍗 Fresh Chicken | Boneless | Chicken Leg | Chicken Wings
 </div>
 
-<section class="hero" id="home">
-    <h1>Welcome to SJ Chicken Centre</h1>
-    <p>Fresh Chicken • Best Quality • Easy Online Ordering</p>
-    <a href="#products" class="btn">Order Now</a>
-</section>
+<!-- IMAGE SLIDER -->
+
+<div class="slider" id="home">
+
+    <div class="slide active">
+        <img src="chicken.webp" alt="Fresh Chicken">
+        <div class="slide-content">
+            <h1>Welcome to SJ Chicken Centre</h1>
+            <p>Fresh Chicken at Affordable Prices</p>
+            <a href="#products" class="btn">Order Now</a>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="boneless.chicken.jpeg" alt="Boneless Chicken">
+        <div class="slide-content">
+            <h1>Premium Boneless Chicken</h1>
+            <p>Quality and Freshness You Can Trust</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="chicken leg.jpeg" alt="Chicken Leg">
+        <div class="slide-content">
+            <h1>Fresh Chicken Leg</h1>
+            <p>Order Your Favourite Chicken Products</p>
+            <a href="#products" class="btn">Order Now</a>
+        </div>
+    </div>
+
+    <div class="slide">
+        <img src="chicken wings.jpeg" alt="Chicken Wings">
+        <div class="slide-content">
+            <h1>Delicious Chicken Wings</h1>
+            <p>Easy Online Ordering</p>
+            <a href="#products" class="btn">Buy Now</a>
+        </div>
+    </div>
+
+    <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+    <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+
+    <div class="dots">
+        <span class="dot active" onclick="showSlide(0)"></span>
+        <span class="dot" onclick="showSlide(1)"></span>
+        <span class="dot" onclick="showSlide(2)"></span>
+        <span class="dot" onclick="showSlide(3)"></span>
+    </div>
+
+</div>
 
 <div class="delivery">
     🚚 Home Delivery Available! Contact Us for Delivery Details.
@@ -400,18 +516,12 @@ footer a {
     <h2 class="section-title">🛒 My Shopping Cart</h2>
 
     <div class="cart-box">
-        <div id="cartItems">
-            Your cart is empty.
-        </div>
+        <div id="cartItems">Your cart is empty.</div>
 
-        <div class="total" id="total">
-            Total: ₹0
-        </div>
+        <div class="total" id="total">Total: ₹0</div>
 
         <p style="text-align:right;margin-top:8px;">
-            <button class="btn" onclick="clearCart()">
-                Clear Cart
-            </button>
+            <button class="btn" onclick="clearCart()">Clear Cart</button>
         </p>
     </div>
 </section>
@@ -427,7 +537,8 @@ footer a {
             <input type="text" id="name" placeholder="Enter your name" required>
 
             <label>Phone Number</label>
-            <input type="tel" id="phone" placeholder="10-digit mobile number"
+            <input type="tel" id="phone"
+                   placeholder="10-digit mobile number"
                    pattern="[0-9]{10}" maxlength="10" required>
 
             <label>Delivery Address</label>
@@ -443,19 +554,22 @@ footer a {
             <h3 style="margin:20px 0 12px;">Select Payment Method</h3>
 
             <label class="payment-option">
-                <input type="radio" name="payment" value="UPI Online Payment" required>
-                💳 Online Payment (UPI)
+                <input type="radio" name="payment"
+                       value="UPI Online Payment" required>
+                💳 Online Payment
             </label>
 
             <label class="payment-option">
-                <input type="radio" name="payment" value="Cash on Delivery">
+                <input type="radio" name="payment"
+                       value="Cash on Delivery">
                 💵 Cash on Delivery
             </label>
 
             <div class="payment-note">
-                <strong>Online Payment:</strong>
-                Select UPI to open a supported payment app.
-                Please check the payment details before paying.
+                💳 Online Payment<br>
+                Payment mobile number: <strong>9659387066</strong><br>
+                Use your UPI app to pay the shop's registered number.
+                Verify the receiver name and amount before confirming.
             </div>
 
             <button type="submit" class="btn" style="width:100%;">
@@ -490,14 +604,49 @@ footer a {
 </footer>
 
 <script>
+
+/* SHOP DETAILS */
+
 const WHATSAPP_NUMBER = "919659387066";
-
-// IMPORTANT: Replace this with your actual shop UPI ID.
-const UPI_ID = "YOUR_UPI_ID@bank";
-
+const PAYMENT_PHONE = "9659387066";
 const SHOP_NAME = "SJ Chicken Centre";
 
 let cart = [];
+
+/* IMAGE SLIDER */
+
+let currentSlide = 0;
+let slideTimer;
+
+function showSlide(index) {
+    let slides = document.querySelectorAll(".slide");
+    let dots = document.querySelectorAll(".dot");
+
+    currentSlide = (index + slides.length) % slides.length;
+
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    slides[currentSlide].classList.add("active");
+    dots[currentSlide].classList.add("active");
+}
+
+function changeSlide(direction) {
+    showSlide(currentSlide + direction);
+    startSlider();
+}
+
+function startSlider() {
+    clearInterval(slideTimer);
+
+    slideTimer = setInterval(function() {
+        showSlide(currentSlide + 1);
+    }, 4000);
+}
+
+startSlider();
+
+/* SHOPPING CART */
 
 function addToCart(name, price) {
     let existing = cart.find(item => item.name === name);
@@ -552,10 +701,8 @@ function updateCart() {
             <div class="cart-item">
                 <div>
                     <strong>${item.name}</strong><br>
-                    ₹${item.price} / KG
-                    <br>
-                    Quantity: ${item.quantity.toFixed(1)} KG
-                    <br>
+                    ₹${item.price} / KG<br>
+                    Quantity: ${item.quantity.toFixed(1)} KG<br>
                     Subtotal: ₹${(item.price * item.quantity).toFixed(2)}
                 </div>
 
@@ -574,7 +721,10 @@ function updateCart() {
         "Total: ₹" + getTotal().toFixed(2);
 }
 
+/* ORDER */
+
 document.getElementById("orderForm").addEventListener("submit", function(event) {
+
     event.preventDefault();
 
     if (cart.length === 0) {
@@ -588,10 +738,16 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
     let area = document.getElementById("area").value.trim();
     let city = document.getElementById("city").value.trim();
 
-    let payment = document.querySelector(
+    let paymentChoice = document.querySelector(
         'input[name="payment"]:checked'
-    ).value;
+    );
 
+    if (!paymentChoice) {
+        alert("Please select a payment method.");
+        return;
+    }
+
+    let payment = paymentChoice.value;
     let total = getTotal();
 
     let productDetails = cart.map(item =>
@@ -599,7 +755,7 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
     ).join("\n");
 
     let message =
-        `🍗 NEW ORDER - ${SHOP_NAME}\n\n` +
+        `NEW ORDER - ${SHOP_NAME}\n\n` +
         `Customer: ${name}\n` +
         `Phone: ${phone}\n` +
         `Address: ${address}\n` +
@@ -616,34 +772,23 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
 
     if (payment === "UPI Online Payment") {
 
-        if (UPI_ID === "jonasjessi8@oksbi") {
-            alert("Please update YOUR_UPI_ID@bank in the website code with your actual UPI ID.");
-            return;
-        }
+        alert(
+            "Please open your UPI app and pay 9659387066 using its mobile-number/contact payment feature. " +
+            "Enter the exact order amount: ₹" + total.toFixed(2) +
+            ". Verify the receiver name before paying. " +
+            "Then send your order details through WhatsApp."
+        );
 
-        let upiURL =
-            "upi://pay?pa=" + encodeURIComponent("jonasjessi8@sbi") +
-            "&pn=" + encodeURIComponent("SJ Chicken centre") +
-            "&am=" + total.toFixed(2) +
-            "&cu=INR" +
-            "&tn=" + encodeURIComponent("Chicken Order");
-
-        let paymentWindow = window.open("jonasjessi8@sbi", "_blank");
-
-        if (!paymentWindow) {
-            alert("If your payment app did not open, check your browser settings or use another device.");
-        }
-
-        alert("Complete the UPI payment in your payment app. Then confirm your order through WhatsApp.");
-
-        setTimeout(function() {
-            window.open(whatsappURL, "_blank");
-        }, 1500);
+        window.open(whatsappURL, "_blank");
 
     } else {
+
         window.open(whatsappURL, "_blank");
+
     }
+
 });
+
 </script>
 
 </body>
