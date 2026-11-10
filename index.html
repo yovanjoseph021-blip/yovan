@@ -4,1161 +4,648 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SJ Chicken Centre | Online Ordering</title>
 
 <style>
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #fff5ec;
+    background: #fffaf4;
     color: #222;
 }
 
-/* HEADER */
-
 header {
-    background: #111;
+    background: #171717;
     color: white;
-    padding: 20px 7%;
+    padding: 18px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 15px;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .logo {
-    font-size: 25px;
-    color: #ff4828;
+    font-size: 24px;
     font-weight: bold;
-}
-
-.logo span {
-    color: white;
+    color: #ffb52e;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 10px;
+    margin: 8px;
     font-weight: bold;
-    transition: .3s;
 }
 
 nav a:hover {
-    color: #ff5722;
+    color: #ffb52e;
 }
 
-/* MOVING PRICE SLIDER */
-
-.price-slider {
-    background: linear-gradient(90deg,#a00000,#ff4500,#ff9800);
+.ticker {
+    background: #e63b25;
     color: white;
-    padding: 15px;
-    overflow: hidden;
-    white-space: nowrap;
+    padding: 10px;
+    text-align: center;
     font-weight: bold;
-    font-size: 17px;
 }
-
-.price-slider span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: movePrice 25s linear infinite;
-}
-
-@keyframes movePrice {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-}
-
-/* HERO */
 
 .hero {
-    min-height: 520px;
+    min-height: 420px;
     background:
-    linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.3)),
-    url("chicken.webp");
-
-    background-size: cover;
-    background-position: center;
-
-    display: flex;
-    align-items: center;
-    padding: 60px 8%;
+        linear-gradient(#0009, #0009),
+        url("chicken.webp") center/cover no-repeat;
     color: white;
-}
-
-.hero-content {
-    max-width: 650px;
-    animation: fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
 }
 
 .hero h1 {
-    font-size: clamp(35px,5vw,58px);
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.hero h1 span {
-    color: #ff5722;
+    font-size: 42px;
+    margin-bottom: 15px;
 }
 
 .hero p {
     font-size: 19px;
-    line-height: 1.7;
     margin-bottom: 25px;
 }
 
-.main-btn {
+.btn {
     display: inline-block;
-    background: linear-gradient(90deg,#ff3d00,#ff9800);
-    padding: 15px 30px;
+    background: #e63b25;
     color: white;
+    border: none;
+    padding: 13px 24px;
+    border-radius: 7px;
     text-decoration: none;
-    border-radius: 30px;
+    font-size: 16px;
     font-weight: bold;
-    transition: .3s;
+    cursor: pointer;
 }
 
-.main-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px #ff450099;
+.btn:hover {
+    background: #bd2818;
 }
-
-/* DELIVERY */
 
 .delivery {
-    background: linear-gradient(90deg,#ff0000,#ff8800,#ff0000);
-    background-size: 200% 200%;
-    animation: deliveryMove 4s infinite;
-    color: white;
+    background: #ffb52e;
     text-align: center;
-    padding: 18px;
-    font-size: 19px;
+    padding: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 
-@keyframes deliveryMove {
-    to { background-position: 200% 50%; }
+section {
+    padding: 45px 6%;
 }
 
-/* FEATURES */
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #b52b1c;
+}
 
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    gap: 20px;
-    padding: 40px 7%;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
 }
 
 .feature {
     background: white;
-    padding: 25px 15px;
+    padding: 22px;
     text-align: center;
-    border-radius: 14px;
-    box-shadow: 0 4px 15px #0001;
-    transition: .3s;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px #0001;
 }
-
-.feature:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px #ff572233;
-}
-
-.feature .emoji {
-    font-size: 35px;
-    margin-bottom: 12px;
-}
-
-.feature h3 {
-    color: #d92c16;
-    margin-bottom: 8px;
-}
-
-/* PRODUCTS */
 
 .products {
-    padding: 65px 7%;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 34px;
-    color: #a81712;
-    margin-bottom: 12px;
-}
-
-.section-subtitle {
-    color: #777;
-    margin-bottom: 35px;
-}
-
-.product-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
 }
 
-.card {
+.product {
     background: white;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 5px 20px #0001;
-    transition: .4s;
-    border: 1px solid #eee;
+    text-align: center;
+    box-shadow: 0 3px 12px #0002;
+    transition: 0.3s;
+    padding-bottom: 20px;
 }
 
-.card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 30px #ff450033;
+.product:hover {
+    transform: translateY(-5px);
 }
 
-.image-box {
-    overflow: hidden;
-    height: 210px;
-}
-
-.card img {
+.product img {
     width: 100%;
-    height: 100%;
+    height: 190px;
     object-fit: cover;
-    transition: .5s;
 }
 
-.card:hover img {
-    transform: scale(1.12);
-}
-
-.card-content {
-    padding: 22px 15px;
-}
-
-.card h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
+.product h3 {
+    margin: 15px 0 8px;
 }
 
 .price {
-    font-size: 23px;
-    color: #ed321c;
+    color: #d83220;
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 17px;
+    margin: 10px;
 }
 
-.price small {
-    font-size: 14px;
-    color: #777;
+.product button {
+    margin-top: 8px;
 }
-
-.card button {
-    background: #171717;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.card button:hover {
-    background: #ff4500;
-    box-shadow: 0 0 15px #ff450066;
-}
-
-/* OFFER */
 
 .offer {
-    margin: 20px 7%;
-    padding: 35px 20px;
-    border-radius: 18px;
-    text-align: center;
+    background: #292929;
     color: white;
-    background: linear-gradient(120deg,#650000,#c41e00,#ff6a00);
+    text-align: center;
+    padding: 30px;
+    border-radius: 12px;
+    font-size: 22px;
 }
 
-.offer h2 {
-    font-size: 30px;
-    margin-bottom: 12px;
-}
-
-/* CART */
-
-.cart {
+.cart-box, .order-box, .about-box {
+    max-width: 850px;
+    margin: auto;
     background: white;
-    margin: 50px auto;
-    padding: 35px;
-    width: 86%;
-    max-width: 900px;
-    border-radius: 18px;
-    box-shadow: 0 5px 25px #0001;
-}
-
-.cart h2 {
-    color: #c21c13;
-    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0002;
 }
 
 .cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 10px;
-    padding: 16px 0;
-    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    padding: 14px 0;
 }
 
 .cart-item button {
-    padding: 8px 12px;
-    margin: 3px;
+    padding: 6px 11px;
     border: none;
-    background: #222;
-    color: white;
     border-radius: 5px;
     cursor: pointer;
+    background: #333;
+    color: white;
 }
 
-.cart-item button:hover {
-    background: #ff4500;
+.remove {
+    background: #d83220 !important;
 }
 
 .total {
-    font-size: 26px;
+    text-align: right;
+    font-size: 23px;
     font-weight: bold;
-    color: #e52d18;
-    margin-top: 25px;
+    color: #d83220;
+    margin-top: 20px;
 }
 
-/* ORDER FORM */
-
-.order {
-    background: #181818;
-    color: white;
-    padding: 50px 7%;
-}
-
-.order-box {
-    max-width: 750px;
-    margin: auto;
-}
-
-.order h2 {
-    color: #ff5722;
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.order p {
-    text-align: center;
-    color: #ccc;
-    margin-bottom: 25px;
-}
-
-.order input,
-.order textarea {
+input, textarea, select {
     width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #555;
-    background: #292929;
-    color: white;
-    font-size: 16px;
-    outline: none;
+    padding: 13px;
+    margin: 8px 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
 }
 
-.order input:focus,
-.order textarea:focus {
-    border-color: #ff5722;
+label {
+    font-weight: bold;
 }
 
-/* LOCATION */
-
-.location-section {
-    background: #292929;
-    padding: 22px;
-    border-radius: 12px;
-    margin: 20px 0;
-    border: 1px solid #555;
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
 }
 
-.location-section h3 {
-    color: #ff762b;
-    margin-bottom: 12px;
+.payment-option input {
+    width: auto;
+    margin: 0;
 }
 
-.location-btn {
-    background: linear-gradient(90deg,#087d37,#19b957);
-    color: white;
-    border: none;
+.payment-note {
+    background: #fff4d8;
     padding: 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-    margin-top: 10px;
-    transition: .3s;
-}
-
-.location-btn:hover {
-    background: #ff4500;
-    transform: scale(1.02);
-}
-
-#locationStatus {
-    color: #65e99b;
-    margin-top: 12px;
+    border-radius: 7px;
+    margin: 12px 0;
     font-size: 14px;
 }
 
-.order-submit {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(90deg,#128c43,#21bb65);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: .3s;
-}
-
-.order-submit:hover {
-    background: #16a34a;
-    transform: translateY(-3px);
-}
-
-/* ABOUT */
-
-.about {
-    text-align: center;
-    padding: 55px 20px;
-    background: #fff0e6;
-}
-
-.about h2 {
-    color: #bd2115;
-    margin-bottom: 25px;
-    font-size: 30px;
-}
-
-.about p {
-    margin: 14px;
-    font-size: 17px;
-}
-
-/* FOOTER */
-
 footer {
-    background: #101010;
+    background: #171717;
     color: white;
     text-align: center;
-    padding: 28px 15px;
-    line-height: 2;
+    padding: 25px;
 }
 
-footer span {
-    color: #ff5722;
+footer a {
+    color: #ffb52e;
 }
-
-/* FLOATING ICON */
-
-.floating-chicken {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 200;
-    background: linear-gradient(135deg,#ff3d00,#ff9800);
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    box-shadow: 0 5px 20px #ff450066;
-    animation: float 2.5s infinite ease-in-out;
-}
-
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-}
-
-/* MOBILE */
 
 @media(max-width:600px) {
-
     header {
         justify-content: center;
-        gap: 15px;
-    }
-
-    nav {
-        justify-content: center;
+        text-align: center;
     }
 
     nav a {
-        margin: 7px;
-        font-size: 14px;
+        display: inline-block;
+        margin: 6px;
     }
 
-    .hero {
-        min-height: 430px;
-        padding: 50px 7%;
+    .hero h1 {
+        font-size: 30px;
     }
 
-    .cart {
-        width: 92%;
-        padding: 22px;
-    }
-
-    .section-title {
-        font-size: 28px;
+    .cart-item {
+        align-items: flex-start;
     }
 }
-
-@media(prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
 <header>
-
-    <div class="logo">
-        🍗 SJ <span>CHICKEN CENTRE</span>
-    </div>
+    <div class="logo">🍗 SJ CHICKEN CENTRE</div>
 
     <nav>
         <a href="#home">Home</a>
         <a href="#products">Products</a>
         <a href="#cart">My Cart</a>
-        <a href="#contact">Order</a>
+        <a href="#order">Order</a>
         <a href="#about">About</a>
     </nav>
-
 </header>
 
-<!-- PRICE SLIDER -->
-
-<div class="price-slider">
-    <span>
-        🔥 TODAY'S CHICKEN RATES 🔥
-        Fresh Chicken ₹220/KG |
-        Boneless ₹320/KG |
-        Chicken Leg ₹280/KG |
-        Chicken Wings ₹250/KG |
-        🚚 FREE HOME DELIVERY 🚚
-    </span>
+<div class="ticker">
+    🍗 Fresh Chicken | Boneless | Chicken Leg | Chicken Wings
 </div>
-
-<!-- HERO -->
 
 <section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <h1>
-            Fresh Chicken
-            <span>Delivered</span>
-            To Your Door!
-        </h1>
-
-        <p>
-            Welcome to SJ Chicken Centre.
-            Fresh quality chicken, neatly washed,
-            hygienically packed and delivered to your home.
-        </p>
-
-        <a href="#products" class="main-btn">
-            ORDER NOW →
-        </a>
-
-    </div>
-
+    <h1>Welcome to SJ Chicken Centre</h1>
+    <p>Fresh Chicken • Best Quality • Easy Online Ordering</p>
+    <a href="#products" class="btn">Order Now</a>
 </section>
-
-<!-- DELIVERY -->
 
 <div class="delivery">
-    🚚 FREE DOOR DELIVERY AVAILABLE! ORDER TODAY!
+    🚚 Home Delivery Available! Contact Us for Delivery Details.
 </div>
 
-<!-- FEATURES -->
+<section>
+    <h2 class="section-title">Why Choose Us?</h2>
 
-<section class="features">
+    <div class="features">
+        <div class="feature">
+            <h3>🐔 Fresh Chicken</h3>
+            <p>Fresh chicken products.</p>
+        </div>
 
-    <div class="feature">
-        <div class="emoji">🍗</div>
-        <h3>Fresh Chicken</h3>
-        <p>Fresh quality products</p>
+        <div class="feature">
+            <h3>✨ Clean Processing</h3>
+            <p>Carefully prepared products.</p>
+        </div>
+
+        <div class="feature">
+            <h3>📦 Safe Packaging</h3>
+            <p>Neatly packed orders.</p>
+        </div>
+
+        <div class="feature">
+            <h3>🚚 Home Delivery</h3>
+            <p>Delivery as per availability.</p>
+        </div>
     </div>
-
-    <div class="feature">
-        <div class="emoji">🧼</div>
-        <h3>Neatly Washed</h3>
-        <p>Carefully cleaned and packed</p>
-    </div>
-
-    <div class="feature">
-        <div class="emoji">📦</div>
-        <h3>Safe Packaging</h3>
-        <p>Clean packaging for delivery</p>
-    </div>
-
-    <div class="feature">
-        <div class="emoji">🚚</div>
-        <h3>Home Delivery</h3>
-        <p>Convenient doorstep delivery</p>
-    </div>
-
 </section>
 
-<!-- PRODUCTS -->
+<section id="products">
+    <h2 class="section-title">Our Chicken Products</h2>
 
-<section class="products" id="products">
+    <div class="products">
 
-    <h2 class="section-title">
-        OUR CHICKEN COLLECTION
-    </h2>
-
-    <p class="section-subtitle">
-        Choose your favourite chicken products
-    </p>
-
-    <div class="product-container">
-
-        <div class="card">
-
-            <div class="image-box">
-                <img src="chicken.webp" alt="Fresh Chicken">
-            </div>
-
-            <div class="card-content">
-                <h3>Fresh Chicken</h3>
-                <p class="price">₹220 <small>/ KG</small></p>
-
-                <button onclick="addToCart('Fresh Chicken',220)">
-                    🛒 Add to Cart
-                </button>
-            </div>
-
+        <div class="product">
+            <img src="chicken.webp" alt="Fresh Chicken">
+            <h3>Fresh Chicken</h3>
+            <p class="price">₹220 / KG</p>
+            <button class="btn" onclick="addToCart('Fresh Chicken',220)">
+                Add to Cart
+            </button>
         </div>
 
-        <div class="card">
-
-            <div class="image-box">
-                <img src="boneless.chicken.jpeg" alt="Boneless Chicken">
-            </div>
-
-            <div class="card-content">
-                <h3>Boneless Chicken</h3>
-                <p class="price">₹320 <small>/ KG</small></p>
-
-                <button onclick="addToCart('Boneless Chicken',320)">
-                    🛒 Add to Cart
-                </button>
-            </div>
-
+        <div class="product">
+            <img src="boneless.chicken.jpeg" alt="Boneless Chicken">
+            <h3>Boneless Chicken</h3>
+            <p class="price">₹320 / KG</p>
+            <button class="btn" onclick="addToCart('Boneless Chicken',320)">
+                Add to Cart
+            </button>
         </div>
 
-        <div class="card">
-
-            <div class="image-box">
-                <img src="chicken leg.jpeg" alt="Chicken Leg">
-            </div>
-
-            <div class="card-content">
-                <h3>Chicken Leg</h3>
-                <p class="price">₹280 <small>/ KG</small></p>
-
-                <button onclick="addToCart('Chicken Leg',280)">
-                    🛒 Add to Cart
-                </button>
-            </div>
-
+        <div class="product">
+            <img src="chicken leg.jpeg" alt="Chicken Leg">
+            <h3>Chicken Leg</h3>
+            <p class="price">₹280 / KG</p>
+            <button class="btn" onclick="addToCart('Chicken Leg',280)">
+                Add to Cart
+            </button>
         </div>
 
-        <div class="card">
-
-            <div class="image-box">
-                <img src="chicken wings.jpeg" alt="Chicken Wings">
-            </div>
-
-            <div class="card-content">
-                <h3>Chicken Wings</h3>
-                <p class="price">₹250 <small>/ KG</small></p>
-
-                <button onclick="addToCart('Chicken Wings',250)">
-                    🛒 Add to Cart
-                </button>
-            </div>
-
+        <div class="product">
+            <img src="chicken wings.jpeg" alt="Chicken Wings">
+            <h3>Chicken Wings</h3>
+            <p class="price">₹250 / KG</p>
+            <button class="btn" onclick="addToCart('Chicken Wings',250)">
+                Add to Cart
+            </button>
         </div>
 
     </div>
-
 </section>
 
-<!-- OFFER -->
-
-<section class="offer">
-
-    <h2>🔥 FRESHNESS YOU CAN TRUST! 🔥</h2>
-
-    <p>
-        Quality Chicken • Clean Packaging • Friendly Service
-    </p>
-
-</section>
-
-<!-- CART -->
-
-<section class="cart" id="cart">
-
-    <h2>🛒 MY SHOPPING CART</h2>
-
-    <div id="cartItems">
-        Your cart is empty. Start shopping!
+<section>
+    <div class="offer">
+        🎉 SJ CHICKEN CENTRE 🎉
+        <p style="margin-top:12px;font-size:17px;">
+            Fresh Chicken at Affordable Prices!
+        </p>
     </div>
-
-    <div class="total">
-        Total: ₹<span id="total">0</span>
-    </div>
-
 </section>
 
-<!-- ORDER FORM -->
+<section id="cart">
+    <h2 class="section-title">🛒 My Shopping Cart</h2>
 
-<section class="order" id="contact">
+    <div class="cart-box">
+        <div id="cartItems">
+            Your cart is empty.
+        </div>
+
+        <div class="total" id="total">
+            Total: ₹0
+        </div>
+
+        <p style="text-align:right;margin-top:8px;">
+            <button class="btn" onclick="clearCart()">
+                Clear Cart
+            </button>
+        </p>
+    </div>
+</section>
+
+<section id="order">
+    <h2 class="section-title">Customer Order Details</h2>
 
     <div class="order-box">
 
-        <h2>PLACE YOUR ORDER</h2>
+        <form id="orderForm">
 
-        <p>
-            Enter your details and send your order through WhatsApp.
-        </p>
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
 
-        <form onsubmit="placeOrder(event)">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="10-digit mobile number"
+                   pattern="[0-9]{10}" maxlength="10" required>
 
-            <input type="text"
-            id="customerName"
-            placeholder="Your Full Name"
-            required>
+            <label>Delivery Address</label>
+            <textarea id="address" placeholder="Enter full address"
+                      rows="3" required></textarea>
 
-            <input type="tel"
-            id="customerPhone"
-            placeholder="Your Phone Number"
-            pattern="[0-9]{10}"
-            maxlength="10"
-            required>
+            <label>Area</label>
+            <input type="text" id="area" placeholder="Enter your area" required>
 
-            <textarea
-            id="customerAddress"
-            rows="3"
-            placeholder="House Number and Street Name"
-            required></textarea>
+            <label>City</label>
+            <input type="text" id="city" placeholder="Enter your city" required>
 
-            <input type="text"
-            id="area"
-            placeholder="Enter Your Area"
-            required>
+            <h3 style="margin:20px 0 12px;">Select Payment Method</h3>
 
-            <input type="text"
-            id="city"
-            placeholder="Enter Your City"
-            required>
+            <label class="payment-option">
+                <input type="radio" name="payment" value="UPI Online Payment" required>
+                💳 Online Payment (UPI)
+            </label>
 
-            <!-- LOCATION -->
+            <label class="payment-option">
+                <input type="radio" name="payment" value="Cash on Delivery">
+                💵 Cash on Delivery
+            </label>
 
-            <div class="location-section">
-
-                <h3>📍 DELIVERY LOCATION</h3>
-
-                <p>
-                    Share your current GPS location for easier delivery.
-                </p>
-
-                <button type="button"
-                class="location-btn"
-                onclick="getLocation()">
-
-                    📍 SHARE MY CURRENT LOCATION
-
-                </button>
-
-                <p id="locationStatus">
-                    Location has not been shared yet.
-                </p>
-
-                <a id="mapLink"
-                href="#"
-                target="_blank"
-                style="display:none;color:#65e99b;margin-top:12px;">
-
-                    View My Google Maps Location
-
-                </a>
-
+            <div class="payment-note">
+                <strong>Online Payment:</strong>
+                Select UPI to open a supported payment app.
+                Please check the payment details before paying.
             </div>
 
-            <button type="submit" class="order-submit">
-                📲 CONFIRM ORDER ON WHATSAPP
+            <button type="submit" class="btn" style="width:100%;">
+                Place Order
             </button>
 
         </form>
-
     </div>
-
 </section>
 
-<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title">About Us</h2>
 
-<section class="about" id="about">
+    <div class="about-box">
+        <h2>🍗 SJ Chicken Centre</h2>
+        <p style="margin-top:15px;line-height:1.8;">
+            Welcome to SJ Chicken Centre. We provide fresh chicken products
+            with convenient online ordering.
+        </p>
 
-    <h2>WHY CHOOSE SJ CHICKEN CENTRE?</h2>
-
-    <p>✔ Fresh and Quality Chicken</p>
-    <p>✔ Neatly Washed and Packed</p>
-    <p>✔ Hygienic Packaging</p>
-    <p>✔ Fast Door Delivery</p>
-    <p>✔ Customer Satisfaction is Our Priority</p>
-
-    <br>
-
-    <h3>📞 Contact: 8122472343</h3>
-
+        <p style="margin-top:15px;">
+            📞 Contact: 9659387066
+        </p>
+    </div>
 </section>
-
-<!-- FOOTER -->
 
 <footer>
-
-    <h2>🍗 <span>SJ CHICKEN CENTRE</span></h2>
-
-    <p>Fresh Chicken at Your Door!</p>
-
-    <p>Contact: 8122472343</p>
-
-    <p>© 2026 SJ Chicken Centre. All Rights Reserved.</p>
-
+    <h3>🍗 SJ CHICKEN CENTRE</h3>
+    <p style="margin:10px;">Fresh Chicken | Quality | Customer Satisfaction</p>
+    <p>Contact: 9659387066</p>
+    <p style="margin-top:10px;">© 2026 SJ Chicken Centre</p>
 </footer>
 
-<!-- FLOATING CHICKEN -->
-
-<div class="floating-chicken">
-    🍗
-</div>
-
-<!-- JAVASCRIPT -->
-
 <script>
+const WHATSAPP_NUMBER = "919659387066";
+
+// IMPORTANT: Replace this with your actual shop UPI ID.
+const UPI_ID = "YOUR_UPI_ID@bank";
+
+const SHOP_NAME = "SJ Chicken Centre";
 
 let cart = [];
 
-let latitude = "";
-let longitude = "";
-
-/* ADD TO CART */
-
 function addToCart(name, price) {
-
     let existing = cart.find(item => item.name === name);
 
-    if(existing) {
-
-        existing.quantity++;
-
+    if (existing) {
+        existing.quantity += 0.5;
     } else {
-
         cart.push({
             name: name,
             price: price,
-            quantity: 1
+            quantity: 0.5
         });
-
     }
 
     updateCart();
-
+    alert(name + " - 0.5 KG added to cart!");
 }
 
-/* UPDATE CART */
-
-function updateCart() {
-
-    let cartItems = document.getElementById("cartItems");
-
-    let total = 0;
-
-    cartItems.innerHTML = "";
-
-    if(cart.length === 0) {
-
-        cartItems.innerHTML =
-        "Your cart is empty. Start shopping!";
-
-    }
-
-    cart.forEach((item,index) => {
-
-        let itemTotal = item.price * item.quantity;
-
-        total += itemTotal;
-
-        cartItems.innerHTML += `
-
-            <div class="cart-item">
-
-                <div>
-                    <b>${item.name}</b><br>
-
-                    ₹${item.price} × ${item.quantity} KG
-                    = ₹${itemTotal}
-                </div>
-
-                <div>
-
-                    <button onclick="changeQty(${index},-1)">
-                        −
-                    </button>
-
-                    <button onclick="changeQty(${index},1)">
-                        +
-                    </button>
-
-                    <button onclick="removeItem(${index})">
-                        Remove
-                    </button>
-
-                </div>
-
-            </div>
-
-        `;
-
-    });
-
-    document.getElementById("total").innerText = total;
-
-}
-
-/* CHANGE QUANTITY */
-
-function changeQty(index,amount) {
-
+function changeQuantity(index, amount) {
     cart[index].quantity += amount;
 
-    if(cart[index].quantity <= 0) {
-
-        cart.splice(index,1);
-
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
     }
 
     updateCart();
-
 }
-
-/* REMOVE ITEM */
 
 function removeItem(index) {
-
-    cart.splice(index,1);
-
+    cart.splice(index, 1);
     updateCart();
-
 }
 
-/* GPS LOCATION */
+function clearCart() {
+    cart = [];
+    updateCart();
+}
 
-function getLocation() {
+function getTotal() {
+    return cart.reduce((sum, item) => {
+        return sum + item.price * item.quantity;
+    }, 0);
+}
 
-    const status =
-    document.getElementById("locationStatus");
+function updateCart() {
+    let cartItems = document.getElementById("cartItems");
 
-    if(!navigator.geolocation) {
+    if (cart.length === 0) {
+        cartItems.innerHTML = "Your cart is empty.";
+    } else {
+        cartItems.innerHTML = cart.map((item, index) => `
+            <div class="cart-item">
+                <div>
+                    <strong>${item.name}</strong><br>
+                    ₹${item.price} / KG
+                    <br>
+                    Quantity: ${item.quantity.toFixed(1)} KG
+                    <br>
+                    Subtotal: ₹${(item.price * item.quantity).toFixed(2)}
+                </div>
 
-        status.innerText =
-        "Location is not supported by your browser.";
-
-        return;
-
+                <div>
+                    <button onclick="changeQuantity(${index},-0.5)">−</button>
+                    <button onclick="changeQuantity(${index},0.5)">+</button>
+                    <button class="remove" onclick="removeItem(${index})">
+                        Remove
+                    </button>
+                </div>
+            </div>
+        `).join("");
     }
 
-    status.innerText = "Getting your location...";
-
-    navigator.geolocation.getCurrentPosition(
-
-        function(position) {
-
-            latitude = position.coords.latitude;
-
-            longitude = position.coords.longitude;
-
-            let mapURL =
-            "https://www.google.com/maps?q=" +
-            latitude + "," + longitude;
-
-            status.innerText =
-            "✅ Location captured successfully!";
-
-            let mapLink =
-            document.getElementById("mapLink");
-
-            mapLink.href = mapURL;
-
-            mapLink.style.display = "inline-block";
-
-        },
-
-        function(error) {
-
-            status.innerText =
-            "Unable to get location. Please allow location permission.";
-
-        },
-
-        {
-            enableHighAccuracy: true,
-            timeout: 15000
-        }
-
-    );
-
+    document.getElementById("total").innerText =
+        "Total: ₹" + getTotal().toFixed(2);
 }
 
-/* PLACE ORDER */
-
-function placeOrder(event) {
-
+document.getElementById("orderForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    if(cart.length === 0) {
-
+    if (cart.length === 0) {
         alert("Please add products to your cart first!");
-
         return;
-
     }
 
-    let name =
-    document.getElementById("customerName").value.trim();
+    let name = document.getElementById("name").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let area = document.getElementById("area").value.trim();
+    let city = document.getElementById("city").value.trim();
 
-    let phone =
-    document.getElementById("customerPhone").value.trim();
+    let payment = document.querySelector(
+        'input[name="payment"]:checked'
+    ).value;
 
-    let address =
-    document.getElementById("customerAddress").value.trim();
+    let total = getTotal();
 
-    let area =
-    document.getElementById("area").value.trim();
-
-    let city =
-    document.getElementById("city").value.trim();
-
-    if(!/^[0-9]{10}$/.test(phone)) {
-
-        alert("Please enter a valid 10-digit phone number.");
-
-        return;
-
-    }
+    let productDetails = cart.map(item =>
+        `${item.name} - ${item.quantity.toFixed(1)} KG x ₹${item.price} = ₹${(item.quantity * item.price).toFixed(2)}`
+    ).join("\n");
 
     let message =
-    "🍗 NEW ORDER - SJ CHICKEN CENTRE 🍗\n\n";
-
-    message += "Customer: " + name + "\n";
-
-    message += "Phone: " + phone + "\n";
-
-    message += "Address: " + address + "\n";
-
-    message += "Area: " + area + "\n";
-
-    message += "City: " + city + "\n\n";
-
-    if(latitude !== "" && longitude !== "") {
-
-        let mapURL =
-        "https://www.google.com/maps?q=" +
-        latitude + "," + longitude;
-
-        message +=
-        "Google Maps Location: " + mapURL + "\n\n";
-
-    } else {
-
-        message +=
-        "GPS Location: Not shared\n\n";
-
-    }
-
-    let total = 0;
-
-    cart.forEach(item => {
-
-        let amount = item.price * item.quantity;
-
-        total += amount;
-
-        message += item.name + " - " +
-        item.quantity + " KG - ₹" + amount + "\n";
-
-    });
-
-    message += "\nTOTAL AMOUNT: ₹" + total;
-
-    message += "\n\nPlease confirm this order.";
+        `🍗 NEW ORDER - ${SHOP_NAME}\n\n` +
+        `Customer: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Address: ${address}\n` +
+        `Area: ${area}\n` +
+        `City: ${city}\n\n` +
+        `ORDER DETAILS:\n${productDetails}\n\n` +
+        `Total Amount: ₹${total.toFixed(2)}\n` +
+        `Payment Method: ${payment}\n\n` +
+        `Please confirm my order.`;
 
     let whatsappURL =
-    "https://wa.me/918122472343?text=" +
-    encodeURIComponent(message);
+        "https://wa.me/" + WHATSAPP_NUMBER +
+        "?text=" + encodeURIComponent(message);
 
-    window.open(whatsappURL,"_blank");
+    if (payment === "UPI Online Payment") {
 
-}
+        if (UPI_ID === "jonasjessi8@oksbi") {
+            alert("Please update YOUR_UPI_ID@bank in the website code with your actual UPI ID.");
+            return;
+        }
 
+        let upiURL =
+            "upi://pay?pa=" + encodeURIComponent(UPI_ID) +
+            "&pn=" + encodeURIComponent(SHOP_NAME) +
+            "&am=" + total.toFixed(2) +
+            "&cu=INR" +
+            "&tn=" + encodeURIComponent("Chicken Order");
+
+        let paymentWindow = window.open(upiURL, "_blank");
+
+        if (!paymentWindow) {
+            alert("If your payment app did not open, check your browser settings or use another device.");
+        }
+
+        alert("Complete the UPI payment in your payment app. Then confirm your order through WhatsApp.");
+
+        setTimeout(function() {
+            window.open(whatsappURL, "_blank");
+        }, 1500);
+
+    } else {
+        window.open(whatsappURL, "_blank");
+    }
+});
 </script>
 
 </body>
 </html>
-
-
 
