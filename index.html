@@ -628,7 +628,7 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
             "&cu=INR" +
             "&tn=" + encodeURIComponent("Chicken Order");
 
-        let paymentWindow = window.open(upiURL, "_blank");
+        let paymentWindow = window.open("jonasjessi8@sbi", "_blank");
 
         if (!paymentWindow) {
             alert("If your payment app did not open, check your browser settings or use another device.");
