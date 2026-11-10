@@ -5,9 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SJ Chicken Centre | Fresh Chicken Online</title>
+<title>SJ Chicken Centre | Online Ordering</title>
 
 <style>
+
 * {
     margin: 0;
     padding: 0;
@@ -17,9 +18,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #fff8f2;
+    background: #fff5ec;
     color: #222;
-    overflow-x: hidden;
 }
 
 /* HEADER */
@@ -35,22 +35,16 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 4px 15px #0005;
 }
 
 .logo {
     font-size: 25px;
+    color: #ff4828;
     font-weight: bold;
-    color: #ff4b25;
 }
 
 .logo span {
-    color: #fff;
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
+    color: white;
 }
 
 nav a {
@@ -58,19 +52,19 @@ nav a {
     text-decoration: none;
     margin: 10px;
     font-weight: bold;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 nav a:hover {
     color: #ff5722;
 }
 
-/* PRICE TICKER */
+/* MOVING PRICE SLIDER */
 
 .price-slider {
-    background: linear-gradient(90deg,#a80000,#ff4500,#ff9800);
+    background: linear-gradient(90deg,#a00000,#ff4500,#ff9800);
     color: white;
-    padding: 14px;
+    padding: 15px;
     overflow: hidden;
     white-space: nowrap;
     font-weight: bold;
@@ -91,13 +85,14 @@ nav a:hover {
 /* HERO */
 
 .hero {
-    min-height: 530px;
+    min-height: 520px;
     background:
-    linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.25)),
+    linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.3)),
     url("chicken.webp");
 
     background-size: cover;
     background-position: center;
+
     display: flex;
     align-items: center;
     padding: 60px 8%;
@@ -123,7 +118,7 @@ nav a:hover {
 .hero h1 {
     font-size: clamp(35px,5vw,58px);
     margin-bottom: 20px;
-    line-height: 1.15;
+    line-height: 1.2;
 }
 
 .hero h1 span {
@@ -144,7 +139,6 @@ nav a:hover {
     text-decoration: none;
     border-radius: 30px;
     font-weight: bold;
-    box-shadow: 0 5px 20px #ff450055;
     transition: .3s;
 }
 
@@ -156,12 +150,12 @@ nav a:hover {
 /* DELIVERY */
 
 .delivery {
-    background: linear-gradient(90deg,#ff3d00,#ff9800,#ff3d00);
+    background: linear-gradient(90deg,#ff0000,#ff8800,#ff0000);
     background-size: 200% 200%;
-    animation: deliveryMove 5s linear infinite;
+    animation: deliveryMove 4s infinite;
     color: white;
     text-align: center;
-    padding: 19px;
+    padding: 18px;
     font-size: 19px;
     font-weight: bold;
 }
@@ -292,10 +286,9 @@ nav a:hover {
 .card button:hover {
     background: #ff4500;
     box-shadow: 0 0 15px #ff450066;
-    transform: scale(1.05);
 }
 
-/* SPECIAL OFFER */
+/* OFFER */
 
 .offer {
     margin: 20px 7%;
@@ -304,16 +297,11 @@ nav a:hover {
     text-align: center;
     color: white;
     background: linear-gradient(120deg,#650000,#c41e00,#ff6a00);
-    box-shadow: 0 8px 25px #a00a0033;
 }
 
 .offer h2 {
     font-size: 30px;
     margin-bottom: 12px;
-}
-
-.offer p {
-    font-size: 17px;
 }
 
 /* CART */
@@ -344,7 +332,7 @@ nav a:hover {
 }
 
 .cart-item button {
-    padding: 7px 12px;
+    padding: 8px 12px;
     margin: 3px;
     border: none;
     background: #222;
@@ -362,11 +350,6 @@ nav a:hover {
     font-weight: bold;
     color: #e52d18;
     margin-top: 25px;
-}
-
-.empty {
-    color: #888;
-    padding: 15px 0;
 }
 
 /* ORDER FORM */
@@ -413,7 +396,46 @@ nav a:hover {
     border-color: #ff5722;
 }
 
-.order button {
+/* LOCATION */
+
+.location-section {
+    background: #292929;
+    padding: 22px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 1px solid #555;
+}
+
+.location-section h3 {
+    color: #ff762b;
+    margin-bottom: 12px;
+}
+
+.location-btn {
+    background: linear-gradient(90deg,#087d37,#19b957);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    transition: .3s;
+}
+
+.location-btn:hover {
+    background: #ff4500;
+    transform: scale(1.02);
+}
+
+#locationStatus {
+    color: #65e99b;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.order-submit {
     width: 100%;
     padding: 16px;
     background: linear-gradient(90deg,#128c43,#21bb65);
@@ -427,7 +449,7 @@ nav a:hover {
     transition: .3s;
 }
 
-.order button:hover {
+.order-submit:hover {
     background: #16a34a;
     transform: translateY(-3px);
 }
@@ -465,7 +487,7 @@ footer span {
     color: #ff5722;
 }
 
-/* FLOATING BUTTON */
+/* FLOATING ICON */
 
 .floating-chicken {
     position: fixed;
@@ -492,6 +514,7 @@ footer span {
 /* MOBILE */
 
 @media(max-width:600px) {
+
     header {
         justify-content: center;
         gap: 15px;
@@ -521,8 +544,6 @@ footer span {
     }
 }
 
-/* REDUCED MOTION ACCESSIBILITY */
-
 @media(prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -530,6 +551,7 @@ footer span {
         scroll-behavior: auto !important;
     }
 }
+
 </style>
 </head>
 
@@ -538,7 +560,10 @@ footer span {
 <!-- HEADER -->
 
 <header>
-    <div class="logo">🍗 SJ <span>CHICKEN CENTRE</span></div>
+
+    <div class="logo">
+        🍗 SJ <span>CHICKEN CENTRE</span>
+    </div>
 
     <nav>
         <a href="#home">Home</a>
@@ -547,9 +572,10 @@ footer span {
         <a href="#contact">Order</a>
         <a href="#about">About</a>
     </nav>
+
 </header>
 
-<!-- MOVING PRICE SLIDER -->
+<!-- PRICE SLIDER -->
 
 <div class="price-slider">
     <span>
@@ -565,8 +591,14 @@ footer span {
 <!-- HERO -->
 
 <section class="hero" id="home">
+
     <div class="hero-content">
-        <h1>Fresh Chicken <span>Delivered</span> To Your Door!</h1>
+
+        <h1>
+            Fresh Chicken
+            <span>Delivered</span>
+            To Your Door!
+        </h1>
 
         <p>
             Welcome to SJ Chicken Centre.
@@ -577,7 +609,9 @@ footer span {
         <a href="#products" class="main-btn">
             ORDER NOW →
         </a>
+
     </div>
+
 </section>
 
 <!-- DELIVERY -->
@@ -620,7 +654,9 @@ footer span {
 
 <section class="products" id="products">
 
-    <h2 class="section-title">OUR CHICKEN COLLECTION</h2>
+    <h2 class="section-title">
+        OUR CHICKEN COLLECTION
+    </h2>
 
     <p class="section-subtitle">
         Choose your favourite chicken products
@@ -629,6 +665,7 @@ footer span {
     <div class="product-container">
 
         <div class="card">
+
             <div class="image-box">
                 <img src="chicken.webp" alt="Fresh Chicken">
             </div>
@@ -636,13 +673,16 @@ footer span {
             <div class="card-content">
                 <h3>Fresh Chicken</h3>
                 <p class="price">₹220 <small>/ KG</small></p>
+
                 <button onclick="addToCart('Fresh Chicken',220)">
                     🛒 Add to Cart
                 </button>
             </div>
+
         </div>
 
         <div class="card">
+
             <div class="image-box">
                 <img src="boneless.chicken.jpeg" alt="Boneless Chicken">
             </div>
@@ -650,13 +690,16 @@ footer span {
             <div class="card-content">
                 <h3>Boneless Chicken</h3>
                 <p class="price">₹320 <small>/ KG</small></p>
+
                 <button onclick="addToCart('Boneless Chicken',320)">
                     🛒 Add to Cart
                 </button>
             </div>
+
         </div>
 
         <div class="card">
+
             <div class="image-box">
                 <img src="chicken leg.jpeg" alt="Chicken Leg">
             </div>
@@ -664,13 +707,16 @@ footer span {
             <div class="card-content">
                 <h3>Chicken Leg</h3>
                 <p class="price">₹280 <small>/ KG</small></p>
+
                 <button onclick="addToCart('Chicken Leg',280)">
                     🛒 Add to Cart
                 </button>
             </div>
+
         </div>
 
         <div class="card">
+
             <div class="image-box">
                 <img src="chicken wings.jpeg" alt="Chicken Wings">
             </div>
@@ -678,31 +724,37 @@ footer span {
             <div class="card-content">
                 <h3>Chicken Wings</h3>
                 <p class="price">₹250 <small>/ KG</small></p>
+
                 <button onclick="addToCart('Chicken Wings',250)">
                     🛒 Add to Cart
                 </button>
             </div>
+
         </div>
 
     </div>
+
 </section>
 
-<!-- SPECIAL OFFER -->
+<!-- OFFER -->
 
 <section class="offer">
+
     <h2>🔥 FRESHNESS YOU CAN TRUST! 🔥</h2>
+
     <p>
         Quality Chicken • Clean Packaging • Friendly Service
     </p>
+
 </section>
 
-<!-- SHOPPING CART -->
+<!-- CART -->
 
 <section class="cart" id="cart">
 
     <h2>🛒 MY SHOPPING CART</h2>
 
-    <div id="cartItems" class="empty">
+    <div id="cartItems">
         Your cart is empty. Start shopping!
     </div>
 
@@ -735,15 +787,59 @@ footer span {
             id="customerPhone"
             placeholder="Your Phone Number"
             pattern="[0-9]{10}"
+            maxlength="10"
             required>
 
             <textarea
             id="customerAddress"
-            rows="4"
-            placeholder="Your Complete Delivery Address"
+            rows="3"
+            placeholder="House Number and Street Name"
             required></textarea>
 
-            <button type="submit">
+            <input type="text"
+            id="area"
+            placeholder="Enter Your Area"
+            required>
+
+            <input type="text"
+            id="city"
+            placeholder="Enter Your City"
+            required>
+
+            <!-- LOCATION -->
+
+            <div class="location-section">
+
+                <h3>📍 DELIVERY LOCATION</h3>
+
+                <p>
+                    Share your current GPS location for easier delivery.
+                </p>
+
+                <button type="button"
+                class="location-btn"
+                onclick="getLocation()">
+
+                    📍 SHARE MY CURRENT LOCATION
+
+                </button>
+
+                <p id="locationStatus">
+                    Location has not been shared yet.
+                </p>
+
+                <a id="mapLink"
+                href="#"
+                target="_blank"
+                style="display:none;color:#65e99b;margin-top:12px;">
+
+                    View My Google Maps Location
+
+                </a>
+
+            </div>
+
+            <button type="submit" class="order-submit">
                 📲 CONFIRM ORDER ON WHATSAPP
             </button>
 
@@ -785,7 +881,7 @@ footer span {
 
 </footer>
 
-<!-- FLOATING ICON -->
+<!-- FLOATING CHICKEN -->
 
 <div class="floating-chicken">
     🍗
@@ -797,38 +893,48 @@ footer span {
 
 let cart = [];
 
+let latitude = "";
+let longitude = "";
+
+/* ADD TO CART */
+
 function addToCart(name, price) {
 
     let existing = cart.find(item => item.name === name);
 
     if(existing) {
+
         existing.quantity++;
+
     } else {
+
         cart.push({
             name: name,
             price: price,
             quantity: 1
         });
+
     }
 
     updateCart();
 
-    document.getElementById("cart").scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-    });
 }
+
+/* UPDATE CART */
 
 function updateCart() {
 
     let cartItems = document.getElementById("cartItems");
+
     let total = 0;
 
     cartItems.innerHTML = "";
 
     if(cart.length === 0) {
+
         cartItems.innerHTML =
-        '<div class="empty">Your cart is empty. Start shopping!</div>';
+        "Your cart is empty. Start shopping!";
+
     }
 
     cart.forEach((item,index) => {
@@ -838,50 +944,138 @@ function updateCart() {
         total += itemTotal;
 
         cartItems.innerHTML += `
+
             <div class="cart-item">
+
                 <div>
                     <b>${item.name}</b><br>
+
                     ₹${item.price} × ${item.quantity} KG
                     = ₹${itemTotal}
                 </div>
 
                 <div>
-                    <button onclick="changeQty(${index},-1)">−</button>
-                    <button onclick="changeQty(${index},1)">+</button>
-                    <button onclick="removeItem(${index})">Remove</button>
+
+                    <button onclick="changeQty(${index},-1)">
+                        −
+                    </button>
+
+                    <button onclick="changeQty(${index},1)">
+                        +
+                    </button>
+
+                    <button onclick="removeItem(${index})">
+                        Remove
+                    </button>
+
                 </div>
+
             </div>
+
         `;
+
     });
 
     document.getElementById("total").innerText = total;
+
 }
+
+/* CHANGE QUANTITY */
 
 function changeQty(index,amount) {
 
     cart[index].quantity += amount;
 
     if(cart[index].quantity <= 0) {
+
         cart.splice(index,1);
+
     }
 
     updateCart();
+
 }
+
+/* REMOVE ITEM */
 
 function removeItem(index) {
 
     cart.splice(index,1);
 
     updateCart();
+
 }
+
+/* GPS LOCATION */
+
+function getLocation() {
+
+    const status =
+    document.getElementById("locationStatus");
+
+    if(!navigator.geolocation) {
+
+        status.innerText =
+        "Location is not supported by your browser.";
+
+        return;
+
+    }
+
+    status.innerText = "Getting your location...";
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            latitude = position.coords.latitude;
+
+            longitude = position.coords.longitude;
+
+            let mapURL =
+            "https://www.google.com/maps?q=" +
+            latitude + "," + longitude;
+
+            status.innerText =
+            "✅ Location captured successfully!";
+
+            let mapLink =
+            document.getElementById("mapLink");
+
+            mapLink.href = mapURL;
+
+            mapLink.style.display = "inline-block";
+
+        },
+
+        function(error) {
+
+            status.innerText =
+            "Unable to get location. Please allow location permission.";
+
+        },
+
+        {
+            enableHighAccuracy: true,
+            timeout: 15000
+        }
+
+    );
+
+}
+
+/* PLACE ORDER */
 
 function placeOrder(event) {
 
     event.preventDefault();
 
     if(cart.length === 0) {
+
         alert("Please add products to your cart first!");
+
         return;
+
     }
 
     let name =
@@ -893,16 +1087,48 @@ function placeOrder(event) {
     let address =
     document.getElementById("customerAddress").value.trim();
 
+    let area =
+    document.getElementById("area").value.trim();
+
+    let city =
+    document.getElementById("city").value.trim();
+
     if(!/^[0-9]{10}$/.test(phone)) {
+
         alert("Please enter a valid 10-digit phone number.");
+
         return;
+
     }
 
-    let message = "🍗 NEW ORDER - SJ CHICKEN CENTRE 🍗\n\n";
+    let message =
+    "🍗 NEW ORDER - SJ CHICKEN CENTRE 🍗\n\n";
 
     message += "Customer: " + name + "\n";
+
     message += "Phone: " + phone + "\n";
-    message += "Address: " + address + "\n\n";
+
+    message += "Address: " + address + "\n";
+
+    message += "Area: " + area + "\n";
+
+    message += "City: " + city + "\n\n";
+
+    if(latitude !== "" && longitude !== "") {
+
+        let mapURL =
+        "https://www.google.com/maps?q=" +
+        latitude + "," + longitude;
+
+        message +=
+        "Google Maps Location: " + mapURL + "\n\n";
+
+    } else {
+
+        message +=
+        "GPS Location: Not shared\n\n";
+
+    }
 
     let total = 0;
 
@@ -914,9 +1140,11 @@ function placeOrder(event) {
 
         message += item.name + " - " +
         item.quantity + " KG - ₹" + amount + "\n";
+
     });
 
     message += "\nTOTAL AMOUNT: ₹" + total;
+
     message += "\n\nPlease confirm this order.";
 
     let whatsappURL =
@@ -924,9 +1152,13 @@ function placeOrder(event) {
     encodeURIComponent(message);
 
     window.open(whatsappURL,"_blank");
+
 }
 
 </script>
 
 </body>
 </html>
+
+
+
